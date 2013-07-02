@@ -1,0 +1,11 @@
+<h1>Listing posts</h1>
+
+<%= select_tag "credit_card", options_for_select(["first", "second", "third"], 2) %>
+<div class='tab'>
+  <%= render 'table' %>
+</div>
+
+<%= link_to 'Select', posts_path(select_query: 'first'), class: 'link', remote: true %>
+<br />
+
+<%= link_to 'New Post', new_post_path %>

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      format.js { render partial: 'table' }
     end
   end
 

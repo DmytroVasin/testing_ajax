@@ -16,10 +16,21 @@
 //= require_tree .
 
 $(function(){
+	// $('#credit_card').on('change', function(){
+	// 	variable = $(this).val();
+	// 	console.log(variable);
+	// 	$('.link').attr('href', '/posts?select_query='+variable);
+	// 	$('.link').trigger('click');
+	// });
+	
 	$('#credit_card').on('change', function(){
-		variable = $(this).val();
-		console.log(variable);
-		$('.link').attr('href', '/posts?select_query='+variable);
-		$('.link').trigger('click');
+	  var variable = $(this).find('option:selected').text();
+	  $.ajax({
+		  url: '/posts',
+		  data: {select_query: variable },
+		  complete: function(result) {
+		    $('.tab').html(result.responseText);
+		  },
+		dataType: 'JS'});
 	});
 });
